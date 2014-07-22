@@ -74,17 +74,20 @@
 			}
 
 
-			NewEventEnabledObject.prototype.addEventListener = function( eventName, handler ) {
-				NewEventEnabledObject.addEventListener.call( this, eventName, handler );
-			};
+			// Enable instance-invoked events only if there are instances
+			if( NewEventEnabledObject.prototype ) {
+				NewEventEnabledObject.prototype.addEventListener = function( eventName, handler ) {
+					NewEventEnabledObject.addEventListener.call( this, eventName, handler );
+				};
 
-			NewEventEnabledObject.prototype.triggerEvent = function( eventName, options ) {
-				NewEventEnabledObject.triggerEvent.call( this, eventName, options );
-			};
+				NewEventEnabledObject.prototype.triggerEvent = function( eventName, options ) {
+					NewEventEnabledObject.triggerEvent.call( this, eventName, options );
+				};
 
-			NewEventEnabledObject.prototype.removeEventListener = function( eventName, handler ) {
-				NewEventEnabledObject.removeEventListener.call( this, eventName, handler );
-			};
+				NewEventEnabledObject.prototype.removeEventListener = function( eventName, handler ) {
+					NewEventEnabledObject.removeEventListener.call( this, eventName, handler );
+				};
+			}
 		}
 	};
 
