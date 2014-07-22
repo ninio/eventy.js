@@ -89,4 +89,4 @@
 	};
 
 	root.eventy = eventyModule;
-}( root );
+}( window );
