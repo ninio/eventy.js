@@ -41,15 +41,19 @@
 			 * @param  {Object} options    The single argument for the callback. Can consist of anything
 			 */
 			NewEventEnabledObject.triggerEvent = function ( eventName, options ) {
+				var isEventSuccessful = true;
+
 				if( NewEventEnabledObject._eventHandlers !== undefined ) {
 					if( NewEventEnabledObject._eventHandlers[ eventName ] !== undefined ) {
 						for( var handlerIndex = 0; handlerIndex < NewEventEnabledObject._eventHandlers[ eventName ].length; handlerIndex++ ) {
 							if( typeof NewEventEnabledObject._eventHandlers[ eventName ][ handlerIndex ] === 'function' ) {
-								NewEventEnabledObject._eventHandlers[ eventName ][ handlerIndex ].call( this, options );
+								isEventSuccessful = ( NewEventEnabledObject._eventHandlers[ eventName ][ handlerIndex ].call( this, options ) !== false ) && isEventSuccessful;
 							}
 						}
 					}
 				}
+
+				return isEventSuccessful;
 			}
 
 			/**
