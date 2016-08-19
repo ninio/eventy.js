@@ -1,7 +1,7 @@
 eventy.js
 =========
 
-Simple library for enhancing regular JS objects with event interface. No jQuery and no DOM.
+Simple pub-sub library for enhancing regular JS objects with event interface. No jQuery and no DOM.
 To event enable the type you've just created simply use `eventy.eventEnable( YourObject );`
 Let's say you are implementing a car
 ```javascript
