@@ -29,7 +29,7 @@ Car.addEventListener( 'typeChange', function( options ) {
 	console.log( this );
 });
 ```
-Just to make sure it works:
+Now you can trigger the event from the instance and handle it from the Type
 ```javascript
 var car1 = new Car( 'sedan' ),
 	car2 = new Car( 'truck' );
@@ -38,3 +38,11 @@ car1.setType( 'truck' );
 car2.setType( 'cabrio' );
 
 ```
+You can also subscribe for a specific instance
+```javascript
+car1.addEventListener( 'typeChange', function ( options ) {
+	console.log( 'car1 event:' );
+	console.log( options.type );
+});
+```
+
